@@ -159,10 +159,21 @@ def run(
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description='HanNamLang v0.1 - 요이~ㅋㅋ')
     parser.add_argument('file', type=Path, help='실행할 .hnl 소스 파일')
-    parser.add_argument('--max-steps', type=int, default=1_000_000, help='무한 반복 방지 명령 횟수')
+    parser.add_argument('--max-steps', type=int, default=None, help='무한 반복 방지 명령 횟수')
+    parser.add_argument('--host', default=None, help='웹 서버 바인딩 주소 덮어쓰기 (기본 127.0.0.1)')
+    parser.add_argument('--port', type=int, default=None, help='웹 서버 포트 덮어쓰기')
     args = parser.parse_args(argv)
     try:
-        run(args.file.read_text(encoding='utf-8-sig'), max_steps=args.max_steps)
+        source = args.file.read_text(encoding='utf-8-sig')
+        if any(line.strip().startswith('동탄어?준 ') for line in source.splitlines()):
+            from hnl_web import HNLError as WebHNLError, serve
+            try:
+                serve(source, base_dir=args.file.resolve().parent, host=args.host, port=args.port,
+                      max_steps=args.max_steps if args.max_steps is not None else 20_000)
+            except WebHNLError as exc:
+                raise HNLError(str(exc)) from exc
+        else:
+            run(source, max_steps=args.max_steps if args.max_steps is not None else 1_000_000)
     except (HNLError, OSError, UnicodeError, ValueError) as exc:
         print(f'HNL 오류: {exc}', file=sys.stderr)
         return 1

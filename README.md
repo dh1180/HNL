@@ -6,6 +6,21 @@ HNL은 `엄.`, `티~원`, `예에에?`, `아뇨아뇨아뇨`, `요이~ㅋㅋ`, `
 
 [엄랭(umjunsik-lang)](https://github.com/rycont/umjunsik-lang)에서 영감을 받았으며 문법·구현은 독자적으로 작성했습니다. Python 3.10+만 있으면 실행됩니다. 외부 패키지는 필요 없습니다.
 
+## HNL Web v0.2 — HNL로 웹사이트 만들기
+
+HNL이 **HTTP 웹 서버/라우트/HTML·JSON 출력/폼·JSON 요청/정적 CSS·JS 제공**을 지원합니다. 기존 v0.1 문법은 유지되며, 웹 프로그램에는 아래와 같이 `동탄어?준`과 `티~원 GET/POST`를 씁니다.
+
+```bash
+git clone https://github.com/dh1180/HNL.git
+cd HNL
+python hnl.py examples/web/site.hnl
+# 브라우저에서 http://127.0.0.1:8080 열기
+```
+
+방명록 폼 저장, URL 파라미터로 인사하기, JSON 방문 카운터 API를 제공하는 실행 가능한 데모가 들어 있습니다. 자세한 문법과 안전상 제약은 [HNL Web 가이드](docs/web.md)를 참고하세요.
+
+**현재는 학습·실험용 웹 개발 서버입니다.** 메모리 상태는 재시작하면 사라지며, DB·로그인·TLS 등의 운영 기능은 아직 구현되지 않았습니다.
+
 ## 1. 설치 및 실행
 
 ```bash
