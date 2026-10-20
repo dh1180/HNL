@@ -1,0 +1,35 @@
+# HNL로 만드는 진짜 웹사이트. HTML/CSS/JS 파일과 HTTP 라우팅을 함께 사용합니다.
+엄.
+동탄어?준 127.0.0.1:8080
+
+티~원 정적 /assets public
+
+티~원 GET /
+아뇨아뇨아뇨! html
+요이~ㅋㅋ "<!doctype html><html lang='ko'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>HNL 방명록</title><link rel='stylesheet' href='/assets/style.css'></head><body><main><p class='eyebrow'>HanNamLang Web v0.2</p><h1>엄. 요이~ㅋㅋ</h1><p>이 웹페이지는 진짜 <code>.hnl</code> 파일에서 응답했습니다.</p>"
+요이~ㅋㅋ "<section><h2>줴줴이야 방명록</h2><p class='note'>최근 메시지: " 어~!note|html "</p><form method='post' action='/note'><input name='message' maxlength='200' required placeholder='메시지를 입력해줘'><button>남기기</button></form></section>"
+요이~ㅋㅋ "<section><h2>동적 라우트</h2><a href='/hello/요이ㅋㅋ'>/hello/요이ㅋㅋ</a><p id='visits'>방문 횟수를 불러오는 중...</p><button id='count'>서버 카운터 증가</button></section><script src='/assets/app.js'></script></main></body></html>"
+식어어ㅋ
+
+티~원 GET /hello/:name
+아뇨아뇨아뇨! html
+요이~ㅋㅋ "<!doctype html><meta charset='utf-8'><title>HNL</title><h1>안녕, " 동탄어?준.path.name|html "!</h1><a href='/'>홈으로</a>"
+식어어ㅋ
+
+티~원 POST /note
+엄~! note : 동탄어?준.form.message
+티~원! "/"
+식어어ㅋ
+
+티~원 GET /api/visits
+아뇨아뇨아뇨! json
+엄~! visits : 어~!visits ㅋ
+요이~ㅋㅋ "{\"visits\":" 어~!visits "}"
+식어어ㅋ
+
+티~원 POST /api/echo
+아뇨아뇨아뇨! json
+요이~ㅋㅋ "{\"message\":" 동탄어?준.json.message|json "}"
+식어어ㅋ
+
+줴줴이야
